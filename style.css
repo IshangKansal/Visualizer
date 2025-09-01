@@ -1,0 +1,19 @@
+button {
+    padding: 10px 10px 10px 10px;
+    border: none;
+    margin: 1px 1px 1px 1px;
+}
+
+#container {
+    display: inline-block;
+    background-color: black;
+    align-items: center;
+}
+
+#btn {
+    display: block;
+}
+
+#btn:hover{
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.15);
+}
