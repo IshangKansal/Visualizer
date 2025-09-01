@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualizer</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-    <div></div>
-    <div class="title">Visualizer</div>
-    <div class="dropdown">
-      <select id="menu">
-        <option value="BFS">BFS</option>
-        <option value="DFS">DFS</option>
-      </select>
-    </div>
-  </header>
-    <div id="container"></div>
-    <button id="btn">Select starting and ending</button>
-    <script src="script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Visualizer</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <div></div>
+            <div class="title">Visualizer</div>
+            <div class="dropdown">
+                <select id="menu">
+                    <option value="BFS">BFS</option>
+                    <option value="DFS">DFS</option>
+                </select>
+            </div>
+        </header>
+        <div id="container"></div>
+        <div id="btns">
+            <button id="btn">Select starting and ending</button>
+            <button id="run">RUN</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
