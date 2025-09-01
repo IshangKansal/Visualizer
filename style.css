@@ -4,7 +4,21 @@ button {
     margin: 1px 1px 1px 1px;
 }
 
+#header{
+    display: block;
+    position: fixed;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    padding: 20px 0 20px 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
 #container {
+    margin-top: 100px;
     display: inline-block;
     background-color: black;
     align-items: center;
