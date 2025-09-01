@@ -3,6 +3,14 @@ let grid = Array.from({ length: 20 }, () => Array(20).fill(0));
 
 let CanPlace = true;
 
+let algorithm = "BFS";
+
+
+document.getElementById("menu").addEventListener("change", function() {
+    algorithm = this.value;
+    console.log("myVar changed to:", algorithm);
+});
+
 const box = document.querySelector("#container");
 
 const marker = (i, j) => {
