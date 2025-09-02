@@ -247,6 +247,57 @@ async function aStarGrid(grid, start, end) {
     return -1;
 }
 
+async function greedyBestFirstGrid(grid, start, end) {
+    const n = grid.length;
+    const m = grid[0].length;
+
+    const visited = Array.from({ length: n }, () => Array(m).fill(false));
+    const pq = []; 
+
+    const parent = Array.from({ length: n }, () => Array(m).fill(null));
+
+    const directions = [
+        [-1, 0], [1, 0],
+        [0, -1], [0, 1],
+    ];
+
+    pq.push([heuristic(start[0], start[1], end), start[0], start[1], null]);
+
+    while (pq.length > 0) {
+        pq.sort((a, b) => a[0] - b[0]); 
+        const [h, x, y, par] = pq.shift();
+
+        if (visited[x][y]) continue;
+        visited[x][y] = true;
+        parent[x][y] = par;
+
+        if (grid[x][y] === 0) {
+            await mark(x, y); 
+        }
+
+        if (x === end[0] && y === end[1]) {
+            const path = reconstructPath(parent, end, start);
+            for (const [px, py] of path) {
+                document.querySelector(
+                    `button[data-id="${px}"][data-status="${py}"]`
+                ).style.backgroundColor = "green";
+            }
+            return path.length - 1; 
+        }
+
+        for (const [dx, dy] of directions) {
+            const nx = x + dx;
+            const ny = y + dy;
+
+            if (nx >= 0 && nx < n && ny >= 0 && ny < m && grid[nx][ny] === 0 && !visited[nx][ny]) {
+                pq.push([heuristic(nx, ny, end), nx, ny, [x, y]]);
+            }
+        }
+    }
+
+    return -1; // no path
+}
+
 const runbtn = document.querySelector("#run");
 runbtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -262,5 +313,7 @@ runbtn.addEventListener("click", (e) => {
         dijkstraGrid(grid, st, en);
     } else if (algorithm === "ASTAR") {
         aStarGrid(grid, st, en);
+    } else if (algorithm === "GBFS") {
+        greedyBestFirstGrid(grid, st, en);
     }
 });
