@@ -46,12 +46,12 @@ header {
     align-items: center;
 }
 
-#btns {
+#btns, #entries {
     display: block;
     margin-left: 50px;
 }
 
-#btn:hover {
+#run:hover {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
